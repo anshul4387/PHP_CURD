@@ -36,10 +36,13 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
         if ($result){
             $update=true;
         }
+     else{
+            echo"We could not update the record succesfully";
+        }
     }
     else{
-    $title=isset($_POST["title"]); 
-    $description= isset($_POST["description"]);
+    $title=$_POST["title"]; 
+    $description= $_POST["description"];
 
     $sql="INSERT INTO `notes` (`title`, `description`) VALUES ('$title','$description')";
     $result= mysqli_query($conn,$sql);
